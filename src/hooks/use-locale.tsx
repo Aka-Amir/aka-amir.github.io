@@ -7,9 +7,12 @@ import {
   useState,
   type ReactNode,
 } from "react"
+import { getRouteApi, useLocation, useNavigate } from "@tanstack/react-router"
 import type { Locale, LocaleData } from "@/types/locale"
+import { withLangSearch } from "@/lib/search"
 
 const STORAGE_KEY = "portfolio-locale"
+const rootRouteApi = getRouteApi("__root__")
 
 type LocaleContextValue = {
   locale: Locale
@@ -20,7 +23,7 @@ type LocaleContextValue = {
 
 const LocaleContext = createContext<LocaleContextValue | null>(null)
 
-function getInitialLocale(): Locale {
+function getStoredOrBrowserLocale(): Locale {
   const stored = localStorage.getItem(STORAGE_KEY)
   if (stored === "en" || stored === "fa") return stored
   return navigator.language.startsWith("fa") ? "fa" : "en"
@@ -35,7 +38,11 @@ async function fetchLocale(locale: Locale): Promise<LocaleData> {
 }
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(getInitialLocale)
+  const { lang: urlLang } = rootRouteApi.useSearch()
+  const navigate = useNavigate()
+  const pathname = useLocation({ select: (location) => location.pathname })
+  const [storedLocale, setStoredLocale] = useState<Locale>(getStoredOrBrowserLocale)
+  const locale = urlLang ?? storedLocale
   const [t, setT] = useState<LocaleData | null>(null)
   const [isLoading, setIsLoading] = useState(true)
 
@@ -73,10 +80,18 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
     }
   }, [locale, t])
 
-  const setLocale = useCallback((next: Locale) => {
-    localStorage.setItem(STORAGE_KEY, next)
-    setLocaleState(next)
-  }, [])
+  const setLocale = useCallback(
+    (next: Locale) => {
+      localStorage.setItem(STORAGE_KEY, next)
+      setStoredLocale(next)
+      navigate({
+        to: pathname,
+        search: withLangSearch(next),
+        replace: true,
+      })
+    },
+    [navigate, pathname],
+  )
 
   const value = useMemo(
     () => ({
@@ -110,11 +125,4 @@ export function useLocale() {
     throw new Error("useLocale must be used within LocaleProvider")
   }
   return ctx
-}
-
-export function interpolate(
-  template: string,
-  vars: Record<string, string>,
-): string {
-  return template.replace(/\{(\w+)\}/g, (_, key: string) => vars[key] ?? "")
 }

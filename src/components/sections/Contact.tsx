@@ -3,7 +3,8 @@ import { Mail, MapPin } from "lucide-react"
 import { SectionHeading } from "@/components/layout/SectionHeading"
 import { BackgroundGradient } from "@/components/ui/background-gradient"
 import { profileStatic, socialLinks } from "@/data/portfolio"
-import { interpolate, useLocale } from "@/hooks/use-locale"
+import { interpolate } from "@/lib/interpolate"
+import { useLocale } from "@/hooks/use-locale"
 
 export function Contact() {
   const { t } = useLocale()

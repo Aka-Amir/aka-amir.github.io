@@ -4,7 +4,8 @@ import { ArrowUpRight } from "lucide-react"
 import { GithubIcon } from "@/components/icons/brand-icons"
 import { SectionHeading } from "@/components/layout/SectionHeading"
 import { projectMeta } from "@/data/portfolio"
-import { interpolate, useLocale } from "@/hooks/use-locale"
+import { interpolate } from "@/lib/interpolate"
+import { useLocale } from "@/hooks/use-locale"
 
 export function Projects() {
   const { t } = useLocale()

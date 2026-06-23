@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, type ComponentProps } from "react"
+import { Link } from "@tanstack/react-router"
 import { motion } from "motion/react"
 import { ArrowDown, FileDown, FolderGit2 } from "lucide-react"
 import { BackgroundBeams } from "@/components/ui/background-beams"
 import { Button as MovingBorderButton } from "@/components/ui/moving-border"
 import { useLocale } from "@/hooks/use-locale"
-import { profileStatic } from "@/data/portfolio"
+import { pdfLinkOptions } from "@/lib/route-links"
 
 function RotatingTypewriter({ words }: { words: string[] }) {
   const [index, setIndex] = useState(0)
@@ -44,7 +45,7 @@ function RotatingTypewriter({ words }: { words: string[] }) {
 }
 
 export function Hero() {
-  const { t } = useLocale()
+  const { t, locale } = useLocale()
 
   return (
     <section
@@ -114,8 +115,8 @@ export function Hero() {
           </MovingBorderButton>
 
           <MovingBorderButton
-            as="a"
-            href={profileStatic.resumeUrl}
+            as={Link}
+            {...(pdfLinkOptions(locale) as unknown as ComponentProps<typeof Link>)}
             duration={3000}
             borderRadius="0rem"
             containerClassName="h-14 w-52"
