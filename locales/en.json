@@ -138,28 +138,24 @@
   ],
   "projects": [
     {
-      "title": "Distributed Task Engine",
-      "description": "A microservice platform that schedules and processes background jobs at scale using Redis queues and event-driven workers."
+      "title": "Medad",
+      "description": "A Microsoft Word-like web editor for creating and editing documents, built for online contract and digital signature platforms. Powers document workflows across banking systems with React, NestJS, Redis, and microservices."
     },
     {
-      "title": "Realtime Analytics Dashboard",
-      "description": "A Next.js dashboard streaming live metrics over WebSockets with a Mongo-backed ingestion pipeline."
+      "title": "API Weaver",
+      "description": "A CLI tool and TypeScript library that generates type-safe SDKs from OpenAPI specifications — weaving your APIs into ready-to-use clients, models, and enums. Published on npm as @api-weaver/core."
     },
     {
-      "title": "E-Commerce API",
-      "description": "A modular commerce backend with cart, checkout, and inventory services, fronted by an API gateway."
+      "title": "NestJS ActiveMQ",
+      "description": "An open-source NestJS microservice transport provider for Apache ActiveMQ, built on rhea with RxJS-based request/response messaging and message pattern support. Published on npm as @fingercoder/nestjs-activemq."
     },
     {
-      "title": "Auth & Identity Service",
-      "description": "A reusable authentication service with JWT, refresh tokens, and role-based access control."
+      "title": "Contract Builder",
+      "description": "Front-end for an online contract builder platform — document authoring, AI-assisted workflows, and Cursor skills integration for building banking contracts."
     },
     {
-      "title": "Component Design System",
-      "description": "An accessible, themeable React component library powering several internal products."
-    },
-    {
-      "title": "DevOps Toolkit",
-      "description": "CLI tooling and infrastructure templates that streamline containerized deployments."
+      "title": "Keylogger (Course)",
+      "description": "Educational Python keylogger project — source code from a security course demonstrating input capture mechanics and system-level event handling."
     }
   ],
   "socials": {
