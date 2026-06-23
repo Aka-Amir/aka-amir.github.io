@@ -1,0 +1,196 @@
+{
+  "meta": {
+    "title": "Amir Khalili — Full-Stack Developer & Software Engineer"
+  },
+  "profile": {
+    "name": "Amir Khalili",
+    "firstName": "Amir",
+    "lastName": "Khalili",
+    "roles": [
+      "Full-Stack Developer",
+      "Software Engineer",
+      "Building since 2019"
+    ],
+    "tagline": "I build scalable, resilient systems from the database to the pixel.",
+    "location": "Remote / Worldwide",
+    "bio": "I'm a full-stack developer and software engineer who has been writing code professionally since 2019. I specialize in designing distributed, microservice-based architectures and crafting fast, accessible interfaces. From real-time multiplayer games to banking contract platforms, I care about the entire product — performance, reliability, and the small details that make software feel great to use."
+  },
+  "nav": [
+    { "label": "About", "href": "#about" },
+    { "label": "Skills", "href": "#skills" },
+    { "label": "Experience", "href": "#experience" },
+    { "label": "Projects", "href": "#projects" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "hero": {
+    "greeting": "Hi, I'm a developer",
+    "viewProjects": "View Projects",
+    "downloadCv": "Download CV",
+    "scrollToAbout": "Scroll to about"
+  },
+  "sections": {
+    "about": {
+      "index": "01 / About",
+      "title": "Who I Am"
+    },
+    "skills": {
+      "index": "02 / Skills",
+      "title": "My Tech Stack",
+      "subtitle": "The tools and technologies I reach for to design and ship full-stack products."
+    },
+    "experience": {
+      "index": "03 / Experience",
+      "title": "Where I've Worked",
+      "subtitle": "A timeline of the roles that shaped me as an engineer."
+    },
+    "projects": {
+      "index": "04 / Projects",
+      "title": "Things I've Built",
+      "subtitle": "A selection of systems and products I've designed and engineered."
+    },
+    "contact": {
+      "index": "05 / Contact",
+      "title": "Let's Build Something",
+      "subtitle": "Have a project in mind or just want to say hi? My inbox is always open."
+    }
+  },
+  "skills": [
+    {
+      "name": "NestJS",
+      "description": "Architecting modular, testable backend services with a scalable structure."
+    },
+    {
+      "name": "React",
+      "description": "Building interactive, component-driven user interfaces."
+    },
+    {
+      "name": "Next.js",
+      "description": "Server-rendered, SEO-friendly full-stack apps with the App Router."
+    },
+    {
+      "name": "PostgreSQL",
+      "description": "Relational modeling, query optimization, and rock-solid data integrity."
+    },
+    {
+      "name": "MongoDB",
+      "description": "Flexible document storage for high-velocity, schema-evolving data."
+    },
+    {
+      "name": "Redis",
+      "description": "Caching, pub/sub, and queues for low-latency, high-throughput systems."
+    },
+    {
+      "name": "Microservices",
+      "description": "Designing decoupled services that communicate cleanly and scale independently."
+    }
+  ],
+  "milestones": [
+    {
+      "year": "2019",
+      "title": "Joined SAPO",
+      "description": "Started as a back-end game developer building real-time multiplayer systems with Node.js."
+    },
+    {
+      "year": "2021",
+      "title": "Real-Time & Microservices",
+      "description": "Dove deep into WebRTC, gRPC, and distributed architecture for live multiplayer games."
+    },
+    {
+      "year": "2023",
+      "title": "Web3 Frontend",
+      "description": "Built a cross-chain DEX at First-data (1Dex) with React, GraphQL, and MetaMask integration."
+    },
+    {
+      "year": "Today",
+      "title": "Banking & FinTech",
+      "description": "Full-stack work on online contract and digital signature platforms for banking systems at Dotin."
+    }
+  ],
+  "experiences": [
+    {
+      "company": "Dotin",
+      "role": "Full-Stack Developer",
+      "period": "Nov 2023 — Present",
+      "points": [
+        "Working on online contract and digital signature systems for 7 banking platforms using NestJS and microservices.",
+        "Optimized business logic and built a document versioning system.",
+        "Designed a Microsoft Word-like text editor with React (medad.me)."
+      ]
+    },
+    {
+      "company": "First-data (1Dex)",
+      "role": "Front-end Developer",
+      "period": "Aug 2023 — Nov 2023",
+      "points": [
+        "Developed a cross-chain decentralized exchange (DEX) with MetaMask, WebSockets, GraphQL, and React.",
+        "Designed an atomic transaction system and optimized application performance."
+      ]
+    },
+    {
+      "company": "SAPO",
+      "role": "Back-end Game Developer",
+      "period": "Jul 2019 — Aug 2023",
+      "points": [
+        "Developed a Werewolf (Mafia) multiplayer game with WebSocket, WebRTC, gRPC, and microservices.",
+        "Built 3 custom game scenarios and a 3D model download and encryption service with Node.js."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Distributed Task Engine",
+      "description": "A microservice platform that schedules and processes background jobs at scale using Redis queues and event-driven workers."
+    },
+    {
+      "title": "Realtime Analytics Dashboard",
+      "description": "A Next.js dashboard streaming live metrics over WebSockets with a Mongo-backed ingestion pipeline."
+    },
+    {
+      "title": "E-Commerce API",
+      "description": "A modular commerce backend with cart, checkout, and inventory services, fronted by an API gateway."
+    },
+    {
+      "title": "Auth & Identity Service",
+      "description": "A reusable authentication service with JWT, refresh tokens, and role-based access control."
+    },
+    {
+      "title": "Component Design System",
+      "description": "An accessible, themeable React component library powering several internal products."
+    },
+    {
+      "title": "DevOps Toolkit",
+      "description": "CLI tooling and infrastructure templates that streamline containerized deployments."
+    }
+  ],
+  "socials": {
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "twitter": "Twitter",
+    "email": "Email"
+  },
+  "contact": {
+    "getInTouch": "Get in touch",
+    "footer": "Designed & built by {name}"
+  },
+  "a11y": {
+    "toggleTheme": "Toggle color theme",
+    "toggleMenu": "Toggle menu",
+    "repoLink": "{title} repository",
+    "liveLink": "{title} live link"
+  },
+  "language": {
+    "en": "English",
+    "fa": "فارسی"
+  },
+  "resume": {
+    "summary": "Summary",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "journey": "Career Journey",
+    "contact": "Contact",
+    "location": "Location",
+    "printAgain": "Print again",
+    "backHome": "Back to home"
+  }
+}

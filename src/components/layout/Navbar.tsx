@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "motion/react"
-import { Moon, Sun, Menu, X } from "lucide-react"
+import { Moon, Sun, Menu, X, Languages } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useTheme } from "@/hooks/use-theme"
-import { navLinks, profile } from "@/data/portfolio"
+import { useLocale } from "@/hooks/use-locale"
+import { locales } from "@/data/portfolio"
+import type { Locale } from "@/types/locale"
 
 export function Navbar() {
   const { theme, toggleTheme } = useTheme()
+  const { locale, setLocale, t } = useLocale()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [langOpen, setLangOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -16,6 +20,11 @@ export function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
+
+  const toggleLocale = (next: Locale) => {
+    setLocale(next)
+    setLangOpen(false)
+  }
 
   return (
     <motion.header
@@ -37,14 +46,14 @@ export function Navbar() {
           className="flex items-center gap-2 font-mono text-lg font-extrabold tracking-tight"
         >
           <span className="grid h-8 w-8 place-items-center border-2 border-border bg-primary text-primary-foreground">
-            {profile.firstName[0]}
-            {profile.lastName[0]}
+            {t.profile.firstName[0]}
+            {t.profile.lastName[0]}
           </span>
-          <span className="hidden sm:inline">{profile.name}</span>
+          <span className="hidden sm:inline">{t.profile.name}</span>
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">
-          {navLinks.map((link) => (
+          {t.nav.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
@@ -57,10 +66,50 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => setLangOpen((v) => !v)}
+              aria-label={locale === "fa" ? t.language.fa : t.language.en}
+              aria-expanded={langOpen}
+              className="flex h-9 cursor-pointer items-center gap-1.5 border-2 border-border bg-background px-2.5 font-mono text-xs font-bold uppercase text-foreground transition-all hover:bg-primary hover:text-primary-foreground"
+            >
+              <Languages className="h-4 w-4" />
+              <span>{locale.toUpperCase()}</span>
+            </button>
+
+            <AnimatePresence>
+              {langOpen && (
+                <motion.ul
+                  initial={{ opacity: 0, y: -6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.15 }}
+                  className="absolute end-0 top-full z-50 mt-1 min-w-[7rem] border-2 border-border bg-card brutal-shadow"
+                >
+                  {locales.map((code) => (
+                    <li key={code}>
+                      <button
+                        type="button"
+                        onClick={() => toggleLocale(code)}
+                        className={cn(
+                          "block w-full px-3 py-2 text-start font-mono text-sm transition-colors hover:bg-primary hover:text-primary-foreground",
+                          locale === code && "bg-primary/10 font-bold text-primary",
+                        )}
+                      >
+                        {t.language[code]}
+                      </button>
+                    </li>
+                  ))}
+                </motion.ul>
+              )}
+            </AnimatePresence>
+          </div>
+
           <button
             type="button"
             onClick={toggleTheme}
-            aria-label="Toggle color theme"
+            aria-label={t.a11y.toggleTheme}
             className="grid h-9 w-9 cursor-pointer place-items-center border-2 border-border bg-background text-foreground transition-all hover:bg-primary hover:text-primary-foreground active:translate-x-[2px] active:translate-y-[2px]"
           >
             {theme === "dark" ? (
@@ -73,7 +122,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setMobileOpen((v) => !v)}
-            aria-label="Toggle menu"
+            aria-label={t.a11y.toggleMenu}
             className="grid h-9 w-9 cursor-pointer place-items-center border-2 border-border bg-background text-foreground transition-colors hover:bg-primary hover:text-primary-foreground md:hidden"
           >
             {mobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
@@ -90,7 +139,7 @@ export function Navbar() {
             transition={{ duration: 0.2 }}
             className="mx-auto mt-2 grid max-w-5xl gap-1 border-2 border-border bg-card p-2 brutal-shadow md:hidden"
           >
-            {navLinks.map((link) => (
+            {t.nav.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}

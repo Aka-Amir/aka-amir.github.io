@@ -3,7 +3,8 @@ import { motion } from "motion/react"
 import { ArrowDown, FileDown, FolderGit2 } from "lucide-react"
 import { BackgroundBeams } from "@/components/ui/background-beams"
 import { Button as MovingBorderButton } from "@/components/ui/moving-border"
-import { profile } from "@/data/portfolio"
+import { useLocale } from "@/hooks/use-locale"
+import { profileStatic } from "@/data/portfolio"
 
 function RotatingTypewriter({ words }: { words: string[] }) {
   const [index, setIndex] = useState(0)
@@ -37,12 +38,14 @@ function RotatingTypewriter({ words }: { words: string[] }) {
   return (
     <span className="font-mono text-primary">
       {text}
-      <span className="ml-1 inline-block h-[1em] w-[3px] translate-y-[2px] animate-pulse bg-primary" />
+      <span className="ms-1 inline-block h-[1em] w-[3px] translate-y-[2px] animate-pulse bg-primary" />
     </span>
   )
 }
 
 export function Hero() {
+  const { t } = useLocale()
+
   return (
     <section
       id="top"
@@ -57,7 +60,7 @@ export function Hero() {
           transition={{ duration: 0.5 }}
           className="mb-6 inline-block border-2 border-border bg-card px-4 py-1.5 font-mono text-xs font-medium uppercase tracking-widest brutal-shadow sm:text-sm"
         >
-          Hi, I'm a developer
+          {t.hero.greeting}
         </motion.span>
 
         <motion.h1
@@ -67,9 +70,9 @@ export function Hero() {
           className="text-5xl font-extrabold leading-[0.95] tracking-tighter sm:text-7xl md:text-8xl"
           style={{ textShadow: "4px 4px 0 var(--primary)" }}
         >
-          {profile.firstName}
+          {t.profile.firstName}
           <br />
-          {profile.lastName}
+          {t.profile.lastName}
         </motion.h1>
 
         <motion.div
@@ -79,7 +82,7 @@ export function Hero() {
           className="mt-6 flex min-h-[2.5rem] items-center text-xl font-bold sm:text-2xl md:text-3xl"
         >
           <span className="text-muted-foreground">&gt;&nbsp;</span>
-          <RotatingTypewriter words={profile.roles} />
+          <RotatingTypewriter words={t.profile.roles} />
         </motion.div>
 
         <motion.p
@@ -88,7 +91,7 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.45 }}
           className="mt-6 max-w-xl text-balance font-mono text-sm text-muted-foreground sm:text-base"
         >
-          {profile.tagline}
+          {t.profile.tagline}
         </motion.p>
 
         <motion.div
@@ -106,28 +109,28 @@ export function Hero() {
             borderClassName="bg-[radial-gradient(var(--primary)_40%,transparent_60%)]"
             className="border-2 border-border bg-primary font-mono text-sm font-bold uppercase tracking-wider text-primary-foreground"
           >
-            <FolderGit2 className="mr-2 h-4 w-4" />
-            View Projects
+            <FolderGit2 className="me-2 h-4 w-4" />
+            {t.hero.viewProjects}
           </MovingBorderButton>
 
           <MovingBorderButton
             as="a"
-            href={profile.resumeUrl}
+            href={profileStatic.resumeUrl}
             duration={3000}
             borderRadius="0rem"
             containerClassName="h-14 w-52"
             borderClassName="bg-[radial-gradient(var(--foreground)_40%,transparent_60%)]"
             className="border-2 border-border bg-card font-mono text-sm font-bold uppercase tracking-wider text-foreground"
           >
-            <FileDown className="mr-2 h-4 w-4" />
-            Download CV
+            <FileDown className="me-2 h-4 w-4" />
+            {t.hero.downloadCv}
           </MovingBorderButton>
         </motion.div>
       </div>
 
       <motion.a
         href="#about"
-        aria-label="Scroll to about"
+        aria-label={t.hero.scrollToAbout}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}

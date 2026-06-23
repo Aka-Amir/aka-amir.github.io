@@ -227,3 +227,73 @@
 .brutal-shadow-lg {
   box-shadow: var(--shadow-lg);
 }
+
+/* PDF resume — always light mode palette */
+.pdf-resume {
+  color-scheme: light;
+  --background: oklch(0.9079 0 0);
+  --foreground: oklch(0.1579 0 0);
+  --card: oklch(0.8845 0 0);
+  --card-foreground: oklch(0.1579 0 0);
+  --primary: oklch(0.4463 0.1678 27.4784);
+  --primary-foreground: oklch(1.0000 0 0);
+  --secondary: oklch(0.3705 0 0);
+  --secondary-foreground: oklch(1.0000 0 0);
+  --muted: oklch(0.8452 0 0);
+  --muted-foreground: oklch(0.4184 0 0);
+  --border: oklch(0.2156 0 0);
+  --shadow: 3px 3px 0px 0px hsl(0 0% 0% / 1);
+  --shadow-lg: 3px 3px 0px 0px hsl(0 0% 0% / 1), 3px 4px 6px -1px hsl(0 0% 0% / 1);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 5mm !important;
+    background-color: oklch(0.9079 0 0) !important;
+    @top-left {
+      content: "";
+    }
+    @top-right {
+      content: "";
+    }
+    @top-center {
+      content: "";
+    }
+    @bottom-left {
+      content: "";
+    }
+    @bottom-right {
+      content: "";
+    }
+    @bottom-center {
+      content: "";
+    }
+  }
+
+  html,
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background: oklch(0.9079 0 0) !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .pdf-resume {
+    min-height: auto;
+  }
+
+  .pdf-resume .brutal-shadow,
+  .pdf-resume .brutal-shadow-lg {
+    box-shadow: 2px 2px 0 0 hsl(0 0% 0% / 1);
+  }
+
+  .resume-footer {
+    break-inside: avoid;
+  }
+}

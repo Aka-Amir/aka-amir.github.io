@@ -2,9 +2,10 @@ import { useRef } from "react"
 import { motion, useScroll, useTransform } from "motion/react"
 import { Briefcase } from "lucide-react"
 import { SectionHeading } from "@/components/layout/SectionHeading"
-import { experiences } from "@/data/portfolio"
+import { useLocale } from "@/hooks/use-locale"
 
 export function Experience() {
+  const { t } = useLocale()
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -18,22 +19,20 @@ export function Experience() {
       className="mx-auto w-full max-w-5xl px-4 py-24 sm:py-32"
     >
       <SectionHeading
-        index="03 / Experience"
-        title="Where I've Worked"
-        subtitle="A timeline of the roles that shaped me as an engineer."
+        index={t.sections.experience.index}
+        title={t.sections.experience.title}
+        subtitle={t.sections.experience.subtitle}
       />
 
-      <div ref={containerRef} className="relative pl-10 sm:pl-16">
-        {/* Static track */}
-        <div className="absolute left-[14px] top-2 h-full w-[2px] bg-border sm:left-[22px]" />
-        {/* Animated progress line */}
+      <div ref={containerRef} className="relative ps-10 sm:ps-16">
+        <div className="absolute start-[14px] top-2 h-full w-[2px] bg-border sm:start-[22px]" />
         <motion.div
           style={{ scaleY: lineScale }}
-          className="absolute left-[14px] top-2 h-full w-[2px] origin-top bg-primary sm:left-[22px]"
+          className="absolute start-[14px] top-2 h-full w-[2px] origin-top bg-primary sm:start-[22px]"
         />
 
         <div className="space-y-10">
-          {experiences.map((exp, i) => (
+          {t.experiences.map((exp, i) => (
             <motion.div
               key={exp.company + exp.period}
               initial={{ opacity: 0, x: 24 }}
@@ -42,7 +41,7 @@ export function Experience() {
               transition={{ duration: 0.5, delay: i * 0.05 }}
               className="relative"
             >
-              <span className="absolute -left-10 top-1 grid h-8 w-8 place-items-center border-2 border-border bg-primary text-primary-foreground sm:-left-16">
+              <span className="absolute -start-10 top-1 grid h-8 w-8 place-items-center border-2 border-border bg-primary text-primary-foreground sm:-start-16">
                 <Briefcase className="h-4 w-4" />
               </span>
 

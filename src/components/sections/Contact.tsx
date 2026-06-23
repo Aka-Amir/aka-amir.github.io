@@ -2,18 +2,21 @@ import { motion } from "motion/react"
 import { Mail, MapPin } from "lucide-react"
 import { SectionHeading } from "@/components/layout/SectionHeading"
 import { BackgroundGradient } from "@/components/ui/background-gradient"
-import { profile, socials } from "@/data/portfolio"
+import { profileStatic, socialLinks } from "@/data/portfolio"
+import { interpolate, useLocale } from "@/hooks/use-locale"
 
 export function Contact() {
+  const { t } = useLocale()
+
   return (
     <section
       id="contact"
       className="mx-auto w-full max-w-4xl px-4 py-24 sm:py-32"
     >
       <SectionHeading
-        index="05 / Contact"
-        title="Let's Build Something"
-        subtitle="Have a project in mind or just want to say hi? My inbox is always open."
+        index={t.sections.contact.index}
+        title={t.sections.contact.title}
+        subtitle={t.sections.contact.subtitle}
         className="items-center text-center"
       />
 
@@ -33,35 +36,35 @@ export function Contact() {
             </span>
 
             <h3 className="mt-6 text-2xl font-extrabold tracking-tight sm:text-3xl">
-              Get in touch
+              {t.contact.getInTouch}
             </h3>
 
             <a
-              href={`mailto:${profile.email}`}
+              href={`mailto:${profileStatic.email}`}
               className="mt-3 break-all font-mono text-base font-medium text-primary underline-offset-4 hover:underline sm:text-lg"
             >
-              {profile.email}
+              {profileStatic.email}
             </a>
 
             <p className="mt-2 flex items-center gap-1.5 font-mono text-sm text-muted-foreground">
               <MapPin className="h-4 w-4" />
-              {profile.location}
+              {t.profile.location}
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              {socials.map((social) => {
+              {socialLinks.map((social) => {
                 const Icon = social.icon
                 return (
                   <a
-                    key={social.label}
+                    key={social.key}
                     href={social.href}
                     target="_blank"
                     rel="noreferrer"
-                    aria-label={social.label}
+                    aria-label={t.socials[social.key]}
                     className="flex items-center gap-2 border-2 border-border bg-background px-4 py-2 font-mono text-sm font-medium text-foreground transition-all hover:-translate-x-[2px] hover:-translate-y-[2px] hover:bg-primary hover:text-primary-foreground hover:brutal-shadow"
                   >
                     <Icon className="h-4 w-4" />
-                    {social.label}
+                    {t.socials[social.key]}
                   </a>
                 )
               })}
@@ -72,7 +75,7 @@ export function Contact() {
 
       <footer className="mt-16 border-t-2 border-border pt-6 text-center">
         <p className="font-mono text-xs text-muted-foreground">
-          Designed & built by {profile.name} ·{" "}
+          {interpolate(t.contact.footer, { name: t.profile.name })} ·{" "}
           {new Date().getFullYear()}
         </p>
       </footer>
