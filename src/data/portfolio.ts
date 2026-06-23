@@ -13,6 +13,7 @@ import {
   GithubIcon,
   LinkedinIcon,
   XIcon,
+  InstagramIcon,
 } from "@/components/icons/brand-icons";
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
@@ -22,7 +23,7 @@ export const profileStatic = {
   resumeUrl: "/pdf",
 };
 
-export type SocialKey = "github" | "linkedin" | "twitter" | "email";
+export type SocialKey = "github" | "linkedin" | "x" | "instagram" | "email";
 
 export type SocialLinkStatic = {
   key: SocialKey;
@@ -34,10 +35,15 @@ export const socialLinks: SocialLinkStatic[] = [
   { key: "github", href: "https://github.com/Aka-Amir", icon: GithubIcon },
   {
     key: "linkedin",
-    href: "https://linkedin.com/in/amirkhalili",
+    href: "https://www.linkedin.com/in/amir-khalili-405b531b8/?skipRedirect=true",
     icon: LinkedinIcon,
   },
-  { key: "twitter", href: "https://x.com/amirkhalili.01", icon: XIcon },
+  { key: "x", href: "https://x.com/aka_archer_01", icon: XIcon },
+  {
+    key: "instagram",
+    href: "https://www.instagram.com/aka_amir.pv",
+    icon: InstagramIcon,
+  },
   { key: "email", href: "mailto:amirkhalili047@outlook.com", icon: Mail },
 ];
 

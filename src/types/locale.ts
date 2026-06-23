@@ -64,7 +64,8 @@ export type LocaleData = {
   socials: {
     github: string
     linkedin: string
-    twitter: string
+    x: string
+    instagram: string
     email: string
   }
   contact: {
