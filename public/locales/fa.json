@@ -138,28 +138,24 @@
   ],
   "projects": [
     {
-      "title": "موتور وظایف توزیع‌شده",
-      "description": "پلتفرم میکروسرویس برای زمان‌بندی و پردازش jobهای پس‌زمینه در مقیاس با صف‌های Redis و workerهای event-driven."
+      "title": "مداد",
+      "description": "ویرایشگر وب شبیه Microsoft Word برای ایجاد و ویرایش مستندات، ساخته‌شده برای پلتفرم‌های قرارداد آنلاین و امضای دیجیتال. جریان‌های کاری مستندات را در سیستم‌های بانکی با React، NestJS، Redis و میکروسرویس پشتیبانی می‌کند."
     },
     {
-      "title": "داشبورد تحلیل بلادرنگ",
-      "description": "داشبورد Next.js با استریم متریک‌های زنده از WebSocket و pipeline دریافت مبتنی بر Mongo."
+      "title": "API Weaver",
+      "description": "ابزار CLI و کتابخانه TypeScript برای تولید SDKهای type-safe از مشخصات OpenAPI — تبدیل APIها به client، model و enum آماده استفاده. منتشرشده در npm با نام @api-weaver/core."
     },
     {
-      "title": "API فروشگاه",
-      "description": "بک‌اند ماژولار فروشگاه با سرویس‌های سبد، پرداخت و موجودی، پشت API gateway."
+      "title": "NestJS ActiveMQ",
+      "description": "ارائه‌دهنده transport میکروسرویس NestJS برای Apache ActiveMQ، مبتنی بر rhea با پیام‌رسانی request/response مبتنی بر RxJS و پشتیبانی از message pattern. منتشرشده در npm با نام @fingercoder/nestjs-activemq."
     },
     {
-      "title": "سرویس احراز هویت",
-      "description": "سرویس احراز هویت قابل استفاده مجدد با JWT، refresh token و کنترل دسترسی مبتنی بر نقش."
+      "title": "Contract Builder",
+      "description": "فرانت‌اند پلتفرم ساخت قرارداد آنلاین — نگارش مستندات، جریان‌های کاری مبتنی بر AI و یکپارچه‌سازی Cursor skills برای ساخت قراردادهای بانکی."
     },
     {
-      "title": "سیستم طراحی کامپوننت",
-      "description": "کتابخانه کامپوننت React در دسترس و قابل تم‌بندی که چندین محصول داخلی را پشتیبانی می‌کند."
-    },
-    {
-      "title": "جعبه ابزار DevOps",
-      "description": "ابزار CLI و قالب‌های زیرساخت برای ساده‌سازی استقرار کانتینری."
+      "title": "Keylogger (Course)",
+      "description": "پروژه آموزشی keylogger با Python — کد منبع یک دوره امنیتی برای نمایش مکانیک ضبط ورودی و مدیریت رویدادهای سطح سیستم."
     }
   ],
   "socials": {
